@@ -1,0 +1,280 @@
+\documentclass{report}  
+\usepackage[utopia]{mathdesign} 
+%\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\input{preamble.tex}
+
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{titlesec}
+\usepackage{microtype}
+\definecolor{myblue}{RGB}{0,82,155}
+
+
+
+%\usepackage[scr]{rsfso}
+
+%\usepackage{libertine}
+%\usepackage{mathpazo}
+%\usepackage{palatino}
+%usepackage{crimson}
+
+
+\newcommand{\faketarget}{\oplus\!\!\!\!\odot}
+\newcommand{\target}{%
+  \begin{tikzpicture}[scale=0.5]
+    \fill[black] (0,0) circle (0.1);
+    \draw (0,0) circle (0.2);
+    \draw (0,0) circle (0.3);
+  \end{tikzpicture}%
+}
+
+\usepackage[clock]{ifsym}
+
+
+\title{\Huge{Interface Personne Marchine}\\{IFT2905}\\{\textbf{Introduction}}}
+\author{\huge{Franz Girardin}}
+\date{\today}
+\lstset{inputencoding=utf8/latin1}
+
+            %%%%%%%%%%%%%%%%%  Sect.                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{helvet}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\color{myblue}}
+  {\filleft%
+    \begin{tikzpicture}
+    \node[
+      outer sep=0pt,
+      text width=1.5cm,
+      minimum height=2cm,
+      fill=myblue,
+      font=\color{white}\fontsize{40}{50}\selectfont,
+      align=center
+      ] (num) {\thechapter};
+    \node[
+      rotate=90,
+      anchor=south,
+      font=\color{black}\Large\normalfont
+      ] at ([xshift=-5pt]num.west) {\textls[180]{\textsc{Section}}};  
+    \end{tikzpicture}%
+  }
+  {5pt}
+  {\titlerule[2.0pt]\vskip3pt\titlerule\vskip4pt\large\normalfont}
+
+\titleformat{\section}
+  {\normalfont\scshape}{\thesection}{1em}{}
+
+
+
+\titleformat{\section}
+  {\normalfont\scshape}{\thesection}{1em}{}
+
+
+% Customizing the spacing for the chapter titles
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+%\usepackage[utopia]{mathdesign}
+% Allow hfill in math environment
+\newcommand{\specialcell}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\ignorespaces\fi}
+
+% Allow you to do the non implication (implication barred)
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+
+\DeclareRobustCommand{\looongrightarrow}{%
+  \DOTSB\relbar\joinrel\relbar\joinrel\relbar\joinrel\rightarrow
+}
+
+
+\title{\Huge{Interface PM}\\{IFT2905}\\{\textbf{Fuille de notes}}}
+\author{\huge{Franz Girardin}}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+\pagebreak
+\tableofcontents
+\pagebreak
+\begin{multicols*}{3}
+
+
+    \footnotesize
+    \paragraph{Style de language de programmation} 
+    
+    \begin{itemize}
+        \item [$\blacktriangleright$ ] \textbf{Impératif}   
+        \item [$\rhd$ ] Procédural
+        \item [$\rhd$ ] Objet 
+        \item [$\blacktriangleright$ ] \textbf{Déclaratif}  
+        \item [$\rhd$ ] Fonctionnel 
+        \item [$\rhd$ ] Logique 
+        \item [$\blacktriangleright$ ] \textbf{Concurrent}  
+        \item [$\rhd$ ] Mémoire partagée
+        \item [$\rhd$ ] Passage de message
+    \end{itemize}
+    \noindent
+    Le \textbf{niveau d'abstraction} d'un language est la distance conceptuelle 
+    dudit language par rapport au language machine. 
+
+
+    \paragraph{Programmation impérative procédurale}
+    \begin{itemize}
+        \item [$\blacktriangleright$ ]\texttt{Fortran}, \texttt{Algol 60}, \texttt{Pascal}, \texttt{C}, \texttt{Ada}          
+    \end{itemize}
+    Effectuent des opérations sur la mémoire; les instructions sont regroupées en 
+    \textit{procédures}. Peut facilement être traduit (compilé) en language machine.   
+
+
+    \paragraph{Programmation impérative OO}
+    \begin{itemize}
+        \item [$\blacktriangleright$ ] \texttt{Simula}, \texttt{Smalltalk}, \texttt{C++}, \texttt{Java}
+    \end{itemize}
+    Chaque objet de la mémoire est accompagné de code qui lui permet d'interagir avec les autres objets. 
+    Les \textit{méthodes} remplacent les \textit{procédures}. Le \textbf{flot de contrôle}
+    passe d'un objet à l'autre par appel de méthode. 
+    
+
+    \paragraph{Programmation Fonctionnelle}
+    \begin{itemize}
+        \item [$\blacktriangleright$ ] \texttt{Lisp}, \texttt{ML}, \texttt{Haskell}, \texttt{APL}
+    \end{itemize}
+    Une fonction est un calcul. Facilite l'analyse et le raisonnement; limite les effets de bord. 
+    Généralement apprécié pour son élégence. 
+
+
+    \chapter{Syntaxe des expressions}
+    La notation \textbf{infixée} est plus familière et intuitive mais elle peut aussi être embigue.   
+    \begin{itemize}
+        \item [$\rhd$ ] \textbf{Niveau de précédence} $a + b * c \equiv a + (b * c)$  
+        \item [$\rhd$ ] \textbf{Associativité} $a - b - c \equiv (a - b) - c$
+    \end{itemize}
+    Les niveaux de précédences établisssent la priorité des opérations et associent les termes 
+    des expressions de la gauche vers la droite. Chaque langage peut avoir une grande quantité 
+    de niveaux et ils peuvent s'avérer difficile à mémoriser. 
+
+    \paragraph{Définition formelle de la syntaxe}
+    Un \textbf{langage} est un ensemble de \textit{phrases} qui sont composées de 
+    \textit{séquences de symboles}; cest symboles représentent le vocabulaire du language. 
+    La \textbf{grammaire} est l'ensemble des règles précisant l'usage du langage.  
+
+    \paragraph{Language et grammaire}
+    Il est possible de définir une langage $L(G)$ à partir d'une grammaire $G$. L'ensemble $L(G)$ est 
+    l'ensemble des \textit{chaînes} et des \textit{phrases}qui peuvent être généré en utilisant les 
+    règles de grammaire $G$. Les éléments $L(G)$ sont noté $p$ et représentent les 
+    phrases ou chaînes de caractèresproduites par la grammaire. L'expression 
+    \texttt{depart} $\implies \cdots \implies p$ signifie qu'il est possible d'utiliser un \textbf{symbole} initial 
+    et appliquer n'importe quelle série de règle de production de la grammaire $G$ pour arriver à la 
+    chaîne $p$. 
+    \begin{align*}
+    L(G) = \bigl\{ p \;\; | \;\; \langle \texttt{départ}  \rangle \bigr\}
+    \end{align*}
+
+    \paragraph{Backus-Naur Form}
+    La BNF est un système de notation pour décrire la syntaxe d'un langage sous forme de \textbf{règles de production}.
+    Chaque règle décrit une structure syntaxique spécifique en termes de séquences d'autres structures, qui peuvent être 
+    des symboles terminaux (c'est-à-dire les éléments de base du langage, tels que des mots-clés, des opérateurs ou des identificateurs)
+    ou d'autres structures syntaxiques définies par des règles.
+
+    \begin{EExample}{}{}
+        Pour définir une \textbf{catégorie} en BNF, on peut utiliser la syntaxe suivant 
+        \begin{align*}
+            \langle \texttt{cat} \rangle \Coloneqq x_1, x_2, \cdots x_n
+        \end{align*}
+        Pour définir un binaire, on peut utiliser la syntaxe suivante
+        \begin{align*}
+             &\langle \texttt{bin} \rangle \Coloneqq 0 \\       
+             &\langle \texttt{bin} \rangle \Coloneqq 1 \\
+             &\langle \texttt{bin} \rangle \Coloneqq \langle \texttt{bin}  \rangle \langle \texttt{bin} \rangle
+        \end{align*}
+    \end{EExample}
+
+
+
+
+    \begin{Definitionx}{Dérivation directe}{}
+        Il s'agit de l'application d'une \textbf{règle de production} définie en BNF  
+        Puisqu'il existe une règle définissant $\langle bin \rangle$, il est possible 
+        d'appliquer une dérivation directe de cette règle pour obtenir le binaire \texttt{01} :
+        \begin{align*}
+            \langle \texttt{bin}   \rangle \Coloneqq \langle \texttt{bin} \rangle \langle \texttt{bin} \rangle 
+            \implies \langle \texttt{bin} \rangle \texttt{ 0 } \implies \texttt{1 0}  
+        \end{align*}
+    \end{Definitionx}
+
+    \begin{EExample}{BNF pour type numérique}{}
+        \begin{align*}
+            \langle \texttt{flottant}   \rangle &\Coloneqq \langle\texttt{entier}\rangle \texttt{ . }  \langle \texttt{entier}   \rangle \\
+            \langle \texttt{entier}   \rangle &\Coloneqq \langle\texttt{chiffre}\rangle \\ 
+            \langle \texttt{entier}   \rangle &\Coloneqq \langle\texttt{chiffre}\rangle \langle\texttt{entier}\rangle \\
+            \langle \texttt{chiffre}   \rangle &\Coloneqq \langle\texttt{(0|1|2|3|4|5|6|7|8|9)}\rangle \\
+        \end{align*}
+    \end{EExample}
+
+    On peut vérifier que l'expression \texttt{1.5} est un flottant selon la définission BNF en 
+    observant l'\textbf{arbre de dérivation} suivant dans lequel le départ est la racine et chaque phrase est une feuille
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=0.10\textwidth]{expression1point5.png}
+        \end{center}
+    \end{figure}
+    \columnbreak
+
+    \paragraph{Grammaires ambigues}
+    Une grammaire est \textbf{ambigue} ssi il existe une phrase dans $L(G)$ qui a plusieurs 
+    arbres de dérivations. 
+
+    \begin{EExample}{Phrase ambigue}{}
+        \begin{align*}
+            \langle \texttt{expr} \rangle  &\Coloneqq x \\
+            \langle \texttt{expr} \rangle &\Coloneqq \langle \texttt{expr}   \rangle - \langle \texttt{expr}   \rangle
+        \end{align*}
+    \end{EExample}
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=0.30\textwidth]{GrammaireAmbig}
+        \end{center}
+    \end{figure}
+
+    \paragraph{Autres motifs de syntaxes BNF}
+    \begin{align*}
+        &x_1 | x_2 : \textit{peut être} x_1 \textbf{ou} x_2 \\ 
+        &(x) : \textit{groupement} \\ 
+        &[x] \;\; \textbf{ou} \;\; x? \;\; \textbf{ou} \;\; \varepsilon| x : 
+        x \textit{ peut apparaître  } \textbf{0} ou \textbf{1} \textit{ fois} \\
+        &\{x\} \;\; \textbf{ou} \;\; : x \;\; \textit{peut être répété } \textbf{ 0} \textit{ou} \textbf{ plusieurs} \textit{ fois}         
+    \end{align*}
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{diagrammesyntaxique}
+        \end{center}
+    \end{figure}
+
+    \paragraph{Sucre syntaxique}
+    \begin{itemize}
+        \item [$\rhd$ ] Exension syntaxique superficielle \textbf{équivalente} à 
+            une autre syntaxe 
+        \item [$\rhd$ ] Pas d'impact sur les propriétés internes du langage
+    \end{itemize}
+
+    \paragraph{Langage fonctionnel}
+    Les langages \textbf{fonctionnels} fournissent une environnment pour générer du code à un 
+    haut niveau d'abstraction. Le programmation fonctionnelle est un paradigme de programmation 
+    pour laquelle les expressions sont plus importantes que les affirmations. On compose ainsi les 
+    programmes en utilisant des \textbf{expressions}; chacune d'elles génère une valeur et ces expressions 
+    peuvent être combinées pour engendrer une expression plus complexes. Cette approche est différente de 
+    la programmation impérative où les affirmations ont un effet sur l'état global et où les 
+    affirmations communiquent des valeurs via l'état global. 
+    
+   
+    \end{multicols*}
+
+
+
+
+
+\end{document}
