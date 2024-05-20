@@ -123,25 +123,27 @@
     \begin{itemize}
         \item [$\blacktriangleright$ ]\texttt{Fortran}, \texttt{Algol 60}, \texttt{Pascal}, \texttt{C}, \texttt{Ada}          
     \end{itemize}
-    Effectuent des opérations sur la mémoire; les instructions sont regroupées en 
-    \textit{procédures}. Peut facilement être traduit (compilé) en language machine.   
+    Effectuent des opérations sur la mémoire; les instructions sont regroupées
+    en \textit{procédures}. Peut facilement être traduit (compilé) en
+    language machine.   
 
 
     \paragraph{Programmation impérative OO}
     \begin{itemize}
         \item [$\blacktriangleright$ ] \texttt{Simula}, \texttt{Smalltalk}, \texttt{C++}, \texttt{Java}
     \end{itemize}
-    Chaque objet de la mémoire est accompagné de code qui lui permet d'interagir avec les autres objets. 
-    Les \textit{méthodes} remplacent les \textit{procédures}. Le \textbf{flot de contrôle}
-    passe d'un objet à l'autre par appel de méthode. 
+    Chaque objet de la mémoire est accompagné de code qui lui permet d'interagir
+    avec les autres objets. Les \textit{méthodes} remplacent les
+    \textit{procédures}. Le \textbf{flot de contrôle} passe d'un objet à l'autre
+    par appel de méthode. 
     
 
     \paragraph{Programmation Fonctionnelle}
     \begin{itemize}
         \item [$\blacktriangleright$ ] \texttt{Lisp}, \texttt{ML}, \texttt{Haskell}, \texttt{APL}
     \end{itemize}
-    Une fonction est un calcul. Facilite l'analyse et le raisonnement; limite les effets de bord. 
-    Généralement apprécié pour son élégence. 
+    Une fonction est un calcul. Facilite l'analyse et le raisonnement; limite
+    les effets de bord. Généralement apprécié pour son élégence. 
 
 
     \chapter{Syntaxe des expressions}
@@ -150,32 +152,37 @@
         \item [$\rhd$ ] \textbf{Niveau de précédence} $a + b * c \equiv a + (b * c)$  
         \item [$\rhd$ ] \textbf{Associativité} $a - b - c \equiv (a - b) - c$
     \end{itemize}
-    Les niveaux de précédences établisssent la priorité des opérations et associent les termes 
-    des expressions de la gauche vers la droite. Chaque langage peut avoir une grande quantité 
-    de niveaux et ils peuvent s'avérer difficile à mémoriser. 
+    Les niveaux de précédences établisssent la priorité des opérations et
+    associent les termes des expressions de la gauche vers la droite. Chaque
+    langage peut avoir une grande quantité de niveaux et ils peuvent s'avérer
+    difficile à mémoriser. 
 
     \paragraph{Définition formelle de la syntaxe}
-    Un \textbf{langage} est un ensemble de \textit{phrases} qui sont composées de 
-    \textit{séquences de symboles}; cest symboles représentent le vocabulaire du language. 
-    La \textbf{grammaire} est l'ensemble des règles précisant l'usage du langage.  
+    Un \textbf{langage} est un ensemble de \textit{phrases} qui sont composées
+    de \textit{séquences de symboles}; cest symboles représentent le vocabulaire
+    du language. La \textbf{grammaire} est l'ensemble des règles précisant
+    l'usage du langage.  
 
     \paragraph{Language et grammaire}
-    Il est possible de définir une langage $L(G)$ à partir d'une grammaire $G$. L'ensemble $L(G)$ est 
-    l'ensemble des \textit{chaînes} et des \textit{phrases}qui peuvent être généré en utilisant les 
-    règles de grammaire $G$. Les éléments $L(G)$ sont noté $p$ et représentent les 
-    phrases ou chaînes de caractèresproduites par la grammaire. L'expression 
-    \texttt{depart} $\implies \cdots \implies p$ signifie qu'il est possible d'utiliser un \textbf{symbole} initial 
-    et appliquer n'importe quelle série de règle de production de la grammaire $G$ pour arriver à la 
-    chaîne $p$. 
+    Il est possible de définir une langage $L(G)$ à partir d'une grammaire $G$.
+    L'ensemble $L(G)$ est l'ensemble des \textit{chaînes} et des
+    \textit{phrases}qui peuvent être généré en utilisant les règles de grammaire
+    $G$. Les éléments $L(G)$ sont noté $p$ et représentent les phrases ou
+    chaînes de caractèresproduites par la grammaire. L'expression
+    \texttt{depart} $\implies \cdots \implies p$ signifie qu'il est possible
+    d'utiliser un \textbf{symbole} initial et appliquer n'importe quelle série
+    de règle de production de la grammaire $G$ pour arriver à la chaîne $p$. 
     \begin{align*}
     L(G) = \bigl\{ p \;\; | \;\; \langle \texttt{départ}  \rangle \bigr\}
     \end{align*}
 
     \paragraph{Backus-Naur Form}
-    La BNF est un système de notation pour décrire la syntaxe d'un langage sous forme de \textbf{règles de production}.
-    Chaque règle décrit une structure syntaxique spécifique en termes de séquences d'autres structures, qui peuvent être 
-    des symboles terminaux (c'est-à-dire les éléments de base du langage, tels que des mots-clés, des opérateurs ou des identificateurs)
-    ou d'autres structures syntaxiques définies par des règles.
+    La BNF est un système de notation pour décrire la syntaxe d'un langage sous
+    forme de \textbf{règles de production}. Chaque règle décrit une structure
+    syntaxique spécifique en termes de séquences d'autres structures, qui
+    peuvent être des symboles terminaux (c'est-à-dire les éléments de base du
+    langage, tels que des mots-clés, des opérateurs ou des identificateurs) ou
+    d'autres structures syntaxiques définies par des règles.
 
     \begin{EExample}{}{}
         Pour définir une \textbf{catégorie} en BNF, on peut utiliser la syntaxe suivant 
@@ -194,9 +201,10 @@
 
 
     \begin{Definitionx}{Dérivation directe}{}
-        Il s'agit de l'application d'une \textbf{règle de production} définie en BNF  
-        Puisqu'il existe une règle définissant $\langle bin \rangle$, il est possible 
-        d'appliquer une dérivation directe de cette règle pour obtenir le binaire \texttt{01} :
+        Il s'agit de l'application d'une \textbf{règle de production} définie en
+        BNF  Puisqu'il existe une règle définissant $\langle bin \rangle$, il
+        est possible d'appliquer une dérivation directe de cette règle pour
+        obtenir le binaire \texttt{01} :
         \begin{align*}
             \langle \texttt{bin}   \rangle \Coloneqq \langle \texttt{bin} \rangle \langle \texttt{bin} \rangle 
             \implies \langle \texttt{bin} \rangle \texttt{ 0 } \implies \texttt{1 0}  
@@ -212,19 +220,19 @@
         \end{align*}
     \end{EExample}
 
-    On peut vérifier que l'expression \texttt{1.5} est un flottant selon la définission BNF en 
-    observant l'\textbf{arbre de dérivation} suivant dans lequel le départ est la racine et chaque phrase est une feuille
+    On peut vérifier que l'expression \texttt{1.5} est un flottant selon la
+    définission BNF en observant l'\textbf{arbre de dérivation} suivant dans
+    lequel le départ est la racine et chaque phrase est une feuille
 
     \begin{figure}[H]
         \begin{center}
             \includegraphics[width=0.10\textwidth]{expression1point5.png}
         \end{center}
     \end{figure}
-    \columnbreak
 
     \paragraph{Grammaires ambigues}
-    Une grammaire est \textbf{ambigue} ssi il existe une phrase dans $L(G)$ qui a plusieurs 
-    arbres de dérivations. 
+    Une grammaire est \textbf{ambigue} ssi il existe une phrase dans $L(G)$ qui
+    a plusieurs arbres de dérivations. 
 
     \begin{EExample}{Phrase ambigue}{}
         \begin{align*}
@@ -244,8 +252,10 @@
         &x_1 | x_2 : \textit{peut être} x_1 \textbf{ou} x_2 \\ 
         &(x) : \textit{groupement} \\ 
         &[x] \;\; \textbf{ou} \;\; x? \;\; \textbf{ou} \;\; \varepsilon| x : 
-        x \textit{ peut apparaître  } \textbf{0} ou \textbf{1} \textit{ fois} \\
-        &\{x\} \;\; \textbf{ou} \;\; : x \;\; \textit{peut être répété } \textbf{ 0} \textit{ou} \textbf{ plusieurs} \textit{ fois}         
+        x \textit{ peut apparaître  } \textbf{0} ou \textbf{1} \textit{ fois} 
+        \\
+        &\{x\} \;\; \textbf{ou} \;\; : x \;\; \textit{peut être répété } \textbf{ 0} 
+        \textit{ou} \textbf{ plusieurs} \textit{ fois}         
     \end{align*}
 
     \begin{figure}[H]
@@ -262,15 +272,952 @@
     \end{itemize}
 
     \paragraph{Langage fonctionnel}
-    Les langages \textbf{fonctionnels} fournissent une environnment pour générer du code à un 
-    haut niveau d'abstraction. Le programmation fonctionnelle est un paradigme de programmation 
-    pour laquelle les expressions sont plus importantes que les affirmations. On compose ainsi les 
-    programmes en utilisant des \textbf{expressions}; chacune d'elles génère une valeur et ces expressions 
-    peuvent être combinées pour engendrer une expression plus complexes. Cette approche est différente de 
-    la programmation impérative où les affirmations ont un effet sur l'état global et où les 
-    affirmations communiquent des valeurs via l'état global. 
+    Les langages \textbf{fonctionnels} fournissent une environnment pour générer
+    du code à un haut niveau d'abstraction. Le programmation fonctionnelle est
+    un paradigme de programmation pour laquelle les expressions sont plus
+    importantes que les affirmations. On compose ainsi les programmes en
+    utilisant des \textbf{expressions}; chacune d'elles génère une valeur et ces
+    expressions peuvent être combinées pour engendrer une expression plus
+    complexes. Cette approche est différente de la programmation impérative où
+    les affirmations ont un effet sur l'état global et où les affirmations
+    communiquent des valeurs via l'état global. 
     
-   
+    \chapter{Lambda calcul}
+    Le calcul lambda décrit comment \textit{définir} des fonctions et comment les 
+    appeler.
+    \paragraph{Syntaxe}
+    \begin{align*}
+          \lambda \textcolor{blue}{x}\textcolor{myp}{.} 
+          \textcolor{red}{x} + 2    
+    \end{align*}
+    \begin{itemize}
+      \item [$\rhd$] $\lambda$ : On déclare la \textbf{création} d'une fonction  
+      \item [$\rhd$] $\textcolor{blue}{x}$ : Déclare la \textbf{variable}
+        dépendante de la $f$ 
+      \item [$\rhd$] $\textcolor{myp}{.}  $ : Sépare les déclarations de l'expression 
+      \item [$\rhd$] $\textcolor{red}{x} + 2$ : Expression définissant $f$  
+    \end{itemize}
+
+    \begin{align*}
+        (\lambda x. x + 2) \; 3 \leftrightarrow \; f(3)
+    \end{align*}
+
+
+    \begin{itemize}
+      \item [$\rhd$] On appelle la $f$ avec l'argument \textbf{3}  
+      \item[$\blacktriangleright$] Logiquement équivalent à $f(3)$
+    \end{itemize}
+
+    \begin{Concept}{}{}
+        Puisque les fonctions acceptent des \textbf{valeurs}; on peut 
+        passer des fonctions comme valeur dans d'autres fonctions, comme 
+        lorsqu'on effectue une composition $f \circ g$
+    \end{Concept}
+
+    \begin{Definitionx}{Termes lamda}{}
+        Une \textbf{fonction} est une expression lamda; elle est composée 
+        de trois \textbf{types} de \textit{termes lambda} fondamentaux    
+    \end{Definitionx}
+
+    \paragraph{Termes lambda}
+
+    \begin{itemize}
+      \item [$\rhd$ ] \textbf{Variable}, p. ex. \textcolor{blue}{$x$}  
+      \item [$\rhd$ ] \textbf{Fonction}, p. ex. 
+        $\lambda$\textcolor{blue}{$x$}\textcolor{myp}{$.$}\textcolor{red}{$x$} +
+        2        $\leftrightarrow$ $f(x) = x + 2$ 
+      \item [$\rhd$ ] \textbf{L'expression d'appel}; \textit{calling a function}  
+      \item [$\blacktriangleright$ ] p. ex $(\lambda x.x+2)y$ $\leftrightarrow$ $f(y)$
+
+    \end{itemize}
+
+    \begin{note}{}{}
+      L'utilisation de \textbf{parenthèse} dans $(\lambda x.x+2)y$ 
+      permet d'identifier
+        et de distinguer
+        la variable ($x$) de l'expression de la fonction et la viriable 
+        ($y$) utilisée pour l'appel
+    \end{note}
+
+    \paragraph{Simplification d'expression}
+    Il existe des règles qui permettent de simplifier les expressions 
+    lambda et ainsi effectuer des calculs de fonction. Ces règles 
+    sont analogues aux règles utilisée pour simplifier des expressions 
+    algébriques
+
+    \paragraph{Règle 1}
+    \mbox{}\\
+    \textit{Le nom d'une fonction n'a pas d'importance}.  
+    \begin{align*}
+        \lambda x.x+2 \leftrightarrow \lambda y.y+2
+    \end{align*}
+
+    \paragraph{Règle 2}
+    \mbox{}\\
+    \textit{On calcule une fonction en substituant la paramètre d'entrée 
+    définissant la fonction avec le terme d'entrée présenté pour le calcul}
+    \begin{align*}
+         (\lambda x.\textcolor{red}{x}  +2)\textcolor{blue}{5}   
+          \leftrightarrow f(\textcolor{blue}{5}  ) = \textcolor{red}{5} + 2  
+    \end{align*}
+
+    \paragraph{Syntaxe d'expression}
+    En lambda calcul, chaque composante d'une expression est 
+    aussi une expression (E). Et chaque expression doit satisfaire 
+    la syntaxe suivante. 
+    \mbox{} \\\\
+    \begin{align*}
+      & E \rightarrow \text{ID} \\
+      & E \rightarrow \lambda \; \text{ID } . \; E \\ 
+      & E \rightarrow E \; E \\
+      & E \rightarrow (E) 
+    \end{align*}
+    Certaines expressions telles que $\lambda x. y z$ sont ambigue; 
+    il faut donc des règles de disambiguation. 
+
+    \paragraph{Règles de disambiguation} \mbox{}\\ 
+    $\rhd$ $E \rightarrow E \; E$ est assiciatif à gauche
+
+    \begin{align*}
+        & x y z \leftrightarrow (x y)z \\ 
+        & w x y z \leftrightarrow ((w x) y) z
+    \end{align*}
+
+    \noindent
+    $\rhd$ $\lambda \text{ ID} \; . \; E$ s'étend à droite autant 
+    que possible, commençant part $\lambda \text{ ID}$
+
+    \begin{align*}
+        & \lambda x \;. \; x y \leftrightarrow \lambda x \; . \; (x y) \\
+        & \lambda x \;. \; \lambda x \;. \;x 
+        \leftrightarrow \lambda x \; . \; (\lambda x \; . \; x) \\ 
+        & (\lambda x \; . \; x y) z \leftrightarrow 
+        (\lambda x \; . \; (x y)) \\ 
+        & (\lambda x \; . \; w x y) z  \leftrightarrow 
+        (\lambda x \; . \; ((w x) y)) z \\ 
+        & \lambda x \; . \; (x) \leftrightarrow \lambda x \; . ((x) y) \\ 
+        & \lambda a \; . \; \lambda b \; . \; \lambda c \; . \; 
+        a b c \leftrightarrow 
+        \lambda a \; . \; (\lambda b \; . \; (\lambda c \; . \; ((a b) c)) )
+    \end{align*}
+
+
+    \paragraph{Sémantique} \mbox{}\\
+    $\rhd$ En lambda calcul, un ID tel que décrit par les règles de 
+    syntaxe est en fait une \textbf{variable}.   
+    \mbox{} \\\\ 
+    $\rhd$ $ E \rightarrow \lambda \; \text{ID} \; . \; E$ est une 
+    \textbf{abstraction} et l'ID est la \textbf{variable} 
+    de l'abstraction. La seconde entité $E$ est le \textbf{corps} de 
+    l'abstraction.     
+    \mbox{}\\\\
+    $\rhd$ $ E \rightarrow E \; E$ est une \textbf{application}  
+    \mbox{} \\\\  
+    $\rhd$ $ \lambda \; \text{ID} \; . \; E$ \textbf{définit} une nouvelle 
+    fonction anonyme
+    \mbox{} \\ 
+    $\rhd$ $E \rightarrow E_1 \; E_2$ correspond à \textbf{l'appel de la 
+    fonction} $E_1$ en établissant $E_2$ comme sont paramètre formel 
+
+    \begin{EExample}{Fonction incrément}{}
+        $$\lambda x \; . \;  + x \; 1$$ 
+        Représente une fonctioon qui ajoute 
+        \textbf{1} à son argument.   
+        $$(\lambda x \; . \;  + x \; 1) \; 2$$  
+        Représente l'appel ou \textit{application} de cette fonction 
+        en établissant 
+        \textbf{2} comme étant paramètre formel.   
+        $$(\lambda x \; . \;  + x \; 1) \; 2 = 2 + 1 = 3$$ 
+        Or, la fonction suivante ne peut pas être calculée lorsqu'elle 
+        est appelé avec \textbf{2}  :
+        $$\lambda y \; . \;  + x \; 1$$ 
+        En effet, l'application de la fonction correspond à la substitution 
+        de tous les '$y$' du corps de l'expression par le pamètre formel
+        \textbf{2}. Mais le corps de l'expression définit un fonction 
+        en termes de $x$ et non $y$; la substitution ne peut donc pas 
+        se faire et l'évaluation de la fonction avec \textbf{2} se réduit 
+        uniquement à $x + 1$ : 
+        $$(\lambda x \; . \;  + x \; 1) \; 2 = x + 1 $$ 
+
+        \end{EExample}
+
+
+    \paragraph{Currying}
+    Il s'agit d'une technique pour traduire l'évaluation d'une fonction 
+    qui prend multiples arguments en une séquence de fonctions 
+    qui prennent chacune un \textbf{unique} argument.   
+
+    \begin{EExample}{}{}
+        \begin{align*}
+          \lambda x \; . \; \lambda y \; . \; ((+ x) y)
+        \end{align*}
+        Est composé de deux \textbf{abstractions}. L'abstraction externe 
+        introduite par $\lambda x$ suggère qu'on doit substituer le 
+        paramètre formel là où le reste de l'expression contient 
+        la variable $x$. Ainsi, l'appel de fonction suivant peut être 
+        réduit : 
+
+        \begin{align*}
+          \bigl(\lambda x \; . \; \lambda y \; . \; ((+ x) y)\bigr) 1
+          =
+          \lambda y \; . \; ((+ \; 1)y) 
+        \end{align*}
+    \end{EExample}
+
+
+      \begin{EExample}{Addition par currying}{}
+         \begin{align*}
+            \bigl( \lambda x \; . \; \lambda y \; . \; ((+ \; x) \;y)\bigr)
+            \; 10 \; 20 &= \bigl( \lambda y \; . \; ((+ \; 10)) \; y \bigr) 
+            \; 20 \\ 
+                    &= (+ \; 10) \; 20 \\          
+                    &= 10 + 20 \\
+                    &= 30 
+          \end{align*}
+      \end{EExample}
+
+
+  \begin{Definitionx}{Variable libre}{}
+      Dépendamment de la portée d'une expression, une variable peut être 
+      lié \textit{bound} à une abstraction si la variable de l'abstraction 
+      correspond à cette variable. On dit qu'un variable est libre 
+      lorsqu'elle ne correspond pas à la variable ID de l'abstraction 
+      mais apparaît quand même dans l'expression de cette abstraction. 
+
+      $$ \lambda x \; . \; (+ 1) \; y  $$
+      Est une abstraction qui contient la \textbf{variable libre} 
+      $y$ puisque l'abstraction est exprimé en terme de $y$, alors 
+      que $\lambda$ est suivit de la métavariable $x$. 
+  \end{Definitionx}
+
+  \begin{EExample}{Identification de variable libre}{}
+    \begin{align*}
+      \lambda x \; . \; x y z : \textbf{pour } x \text{ ?}  
+    \end{align*}
+    Non, puisque $x$ apparaît dans l'expression de l'abstraction 
+    et que l'abstraction contient de métavariable $x$; $x$ est lié 
+    à la fonction. 
+
+    \begin{align*}
+      \lambda x \; . \; x y z : \textbf{pour } y \text{ ?}                 
+    \end{align*}
+    Oui, $y$ n'est pas la métavariable de l'abstraction. 
+      
+
+    \begin{align*}
+      (\lambda x \; . \; (+ \; x \; 1)) \; x : \textbf{pour } x \text{ ?}  
+    \end{align*}
+
+    Le premier $x$ est à l'intérieur d'une abstraction qui a 
+    une métavariable du même nom. Le second $x$ est un paramètre formel 
+    utilisé pour évaluer l'expression de l'abstraction et est donc 
+    une variable libre. 
+
+    \begin{align*}
+      \lambda x \; . \; \lambda y \; . \; \lambda z \; . \; 
+      z y x : \textbf{pour } z \text{ ?}  
+    \end{align*}
+
+    Non, puisque $z$ apparaît dans l'expression  et a la même 
+    identité que la métavariable de l'abstraction. 
+
+    \begin{align*}
+      (\lambda x \; . \; z \; \texttt{foo})   (\lambda y \; . \; y x) 
+     : \textbf{pour } x \text{ ?}  
+    \end{align*}
+
+    Oui, puisque $x$ n'apparaît pas dans le corps de la première 
+    expression, malgré l'existance de la métavariable $x$. 
+    Et pour la seconde expression, la métavariable est $y$; 
+    le $x$  qui apparaît dans le corps de cette expression 
+    n'est donc pas lié à la métavariable de l'expression.  
+  \end{EExample}
+
+    \paragraph{Règles d'expression libre}
+    La variable $x$ est \textbf{libre} dans 
+    une expression $E$ \textbf{Si} :    
+    \begin{align*}
+      & E = x \\
+      & E = \lambda y \; . \; E_1, \text{où } y!= x \text{ et } x 
+      \text{  libre dans } E_1 \\
+      & E = E_1 E_2, \text{où } x  \text{est libre dans } E_1 \\
+      & E = E_1 E_2, \text{où } x  \text{est libre dans } E_2
+    \end{align*}
+
+    La première règle dit que si l'expression est simplement la 
+    variable $x$, $x$ est libre dans cette expression. 
+    La seconde règle dit que si $x$ est libre dans une expression 
+    E si $x$ est libre dans l'abstraction interne $E_1$, 
+    tant que la métavariable 
+    de l'abstraction externe n'est pas équivalente à $x$
+    Les deux dernières règle indiquent que $x$ est libre dans une 
+    expression $E$ composée de deux expression $E_1$ $E_2$, tant 
+    que $x$ est libre dans une de ces deux expressions.
+
+
+    \begin{EExample}{Variable libre}{}
+        Est-ce que $x$ est libre dans les expression suivantes :
+        \begin{align*}
+          x \lambda x \; . \; x 
+        \end{align*}
+      Oui, puisque l'expression désambiguié est 
+      $x (\lambda x \; . \; x)$ et obéit à la syntaxe 
+      $E \rightarrow E_1 E_2$  où $x$ de $E_1$ est tel que 
+      $E_1 = x$ et est donc une variable libre. Ainsi 
+      l'expression globale $E = E_1 E_2$ est libre puisque 
+      $x$ est libre dans $E_1$. 
+        \begin{align*}
+          \lambda x \; . \; y x
+        \end{align*}
+      Non puisque $x$ fait parti de corps de l'abstraction; 
+      la métavariable de l'abstraction est aussi $x$, donc $x$ n'est pas 
+      libre dans cette expression.
+    \end{EExample}
+
+    \begin{Definitionx}{Combinateur}{}
+        Une expression est un combinateur si elle ne contient aucune 
+        variable libre.  
+    \end{Definitionx}
+
+    \begin{EExample}{}{}
+        \begin{align*}
+          \lambda x \; . \lambda y \; . \; x y x 
+        \end{align*}
+        Est un combinateur, puisque $y$ est lié à l'abstraction interne 
+        et $x$ est lié à l'abstraction externe
+        \begin{align*}
+          \lambda x \; . \; x 
+        \end{align*}
+        Est un combinateur puisque $x$ est lié à l'abstraction dont 
+        la métavariable a la même idendité
+        \begin{align*}
+          \lambda z \; . \; \lambda x \; . \; x y z
+        \end{align*}
+        N'est pas un combinateur, puisque $y$ n'est pas lié
+    \end{EExample}
+
+
+    \begin{Definitionx}{Variable liée}{}
+        Une variable liée est une variable qui n'est pas libre. Lorsqu'une 
+        variable est liée, il important de déterminer à quelle abstraction 
+        elle est liée.
+    \end{Definitionx}
+
+
+    \begin{note}{}{}
+        Les variables \textbf{libres} et \textbf{liées} en programmation 
+        fonctionnelle se comportent 
+        comme les variable globales et locales dans les langages 
+        impératifs. Lorsqu'un variable est libre dans une fonction interne 
+        il est possible qu'elle soit tout de même lié à une abstraction 
+        externe. 
+    \end{note}
+
+    \begin{EExample}{}{}
+        L'expression suivante s'évalue comme suit
+        \begin{align*}
+          (\lambda x \; . \; x (\lambda x \; . \; x)) 1
+          &= 1 (\lambda x \; . \; x)
+        \end{align*}
+        Seul le premier $x$ de l'expression a été substitué pour 
+        l'argument $1$, puisque seul ce $x$ est lié à l'abstraction externe. 
+        Le second $x$ est lié à l'abstraction interne. 
+        \\\\ 
+        On peut aussi considérer le corps de l'abstraction externe :
+        \begin{align*}
+            x (\lambda x \; . \; x)
+        \end{align*}
+
+        Dans cette expression, ($E \rightarrow E_1 E_2$), on a 
+        $E_1 = x$ et donc le premier $x$  est une variable libre. 
+        Sachant que le premier $x$ est une variable libre, on peut déduire 
+        que ce $x$ est lié à une de niveau supérieur (abstraction externe),
+        pourvue que cette abstraction contient la métavariable $x$. 
+    \end{EExample}
+
+
+    \paragraph{Equivalence}
+
+    \begin{Definitionx}{$\alpha$-equivalence}{}
+        Deux fonctions sont alpha équivalentes lorsqu'elles 
+        diffèrent uniquement pas le nom des \textbf{variables liées}  
+        \begin{align*}
+          E_1 =_\alpha E_2
+        \end{align*}
+    \end{Definitionx}
+
+    \paragraph{Opérations de renommage}
+    On utilise la syntaxe $E\{ y \; /\ x \}$ pour signifier 
+    qu'on \textbf{substitue} toutes les instances de $x$ par $y$ 
+    dans l'expression $E$. La substitution doit obéir au règles suivantes 
+    \mbox{}
+    \\\\
+    $E \{ y  \; /\ x\}$ \textbf{:}  
+    \begin{align*}
+      & x \{ y \; /\ x \} = y 
+      \\ 
+      & z \{ y \; /\ x \} = z \textbf{ si } z \neq x 
+      \\   
+      & (E_1 E_2) \{ y \; /\ x \} = 
+          (E_1 \{ y \; /\ x \}) 
+          (E_2 \{ y \; /\ x \}) 
+          \\ 
+      & \lambda x \; . \; E \{ y \; /\ x \} = 
+        \lambda y \; . \; E \{ y \; /\ x \} 
+        \\ 
+      & \lambda z \; . \; E \{ y \; /\ x \} = 
+        \lambda z \; . \; E \{ y \; /\ x \} 
+        \textbf{ si } z \neq x   
+    \end{align*}
+  \begin{EExample}{Substitutions}{}
+      \begin{align*}
+        \lambda x \; . \; x \{ \texttt{foo} \; /\ x  \}
+        &=
+        \lambda \texttt{foo} \; . \; x \; \{ \texttt{foo} \; /\ x  \} \\
+        &=
+        \lambda \texttt{foo} \; . \;  \texttt{foo}    
+      \end{align*}
+
+      \begin{align*}
+        &(\lambda x  \; . \; x (\lambda y \; . \; x y z y) x y)   
+        \; \{ \texttt{bar} \; /\ x  \}
+        \\
+        &= 
+        \lambda \texttt{bar} \; . \; 
+        \bigl( x (\lambda y \; . \; x y z y) x y\bigr) 
+          \{\texttt{bar} \; /\ x \}
+         \\
+        &=
+        \lambda \texttt{bar}  \; . \; \texttt{bar}  
+        \bigl(\lambda y \; . \; x y z y\bigr) x y \; 
+          \; \{\texttt{bar} \; /\ x \}
+        \\
+        &=
+        \lambda \texttt{bar}  \; . \; \texttt{bar}  
+        \bigl(\lambda y \; . \; x y z y \{\texttt{bar} \; /\ x   \} \bigr)
+        \bigl( x y \; \{\texttt{bar} \; /\ x \} \bigr) \\
+        &= 
+        \lambda \texttt{bar} \; . \; \texttt{bar}
+        \bigl(\lambda y \; . \; \texttt{bar}yzy   \bigr)
+        \bigl( \texttt{bar} y \bigr)
+      \end{align*}
+  \end{EExample}
+
+  \begin{Theorem}{Expressions $\alpha$-équivalentes}{}
+      Tant que la varable $y$ n'appartient pas à l'expressions 
+      $E$, toutes les expression $\lambda y \; . \; E \{ y \; /\ x \}$ 
+      sont alpha équivalentes à l'expression $\lambda x \; . \; E$
+
+      \begin{align*}
+        \lambda x \; . \; E =_{\alpha} \lambda y \; . \; E \{y \; /\ x \}
+        \big| \; y \notin E
+      \end{align*}
+  \end{Theorem}
+
+  \paragraph{Opération de substitution} 
+  Le \textbf{renommage} permet uniquement de remplacer une variable 
+  par une autre $(\{ x \; /\ y \})$. Or, pour réduire une 
+  expression, il faut effectuer une \textbf{substitution}  
+
+  \begin{align*}
+    E[x \rightarrow N] \ ; \Big| \; E = E_1, N = E_2 
+    \text{ sont des } \lambda\text{-exp}.
+  \end{align*}
+
+  Cette expression revient à dire qu'on remplace $x$ avec 
+  $N$ où $E$ et $N$ sont des $\lambda$-expressions et $x$ est 
+  une \textbf{variable non liée}  . 
+
+  \begin{EExample}{}{}
+     \begin{align*}
+        & (+ \; x \; 1) [x \rightarrow 2] = ( + \; 2 \; 1) \\
+        & (\lambda x \; . \; + \; x \; 1) [x \rightarrow 2] 
+        = (\lambda x \; . \; + \; x \; 1) \\
+        & (\lambda x \; . \; y \; x) [y \rightarrow \lambda z \; . \; x z]  \\
+        &= \\
+        & (\lambda x \; . (\lambda z \; . \; x z) x) \; \textbf{Intermédiare}
+        \\
+        &= 
+        \\
+        & (\lambda w \; . (\lambda z \; . \; x z) w) \\ 
+     \end{align*} 
+  \end{EExample}
+
+  \paragraph{Règles de substitution}
+  \begin{align*}
+    & x [ x \rightarrow N] = N \\ 
+    & y [ x \rightarrow N] = y \textbf{ si } x \neq y   \\ 
+    & (E_1 \; E_2) [ x \rightarrow  N] = 
+    \bigl( E_1 \; [x \rightarrow N]\bigr) 
+    \bigl( E_2 \; [x \rightarrow N]\bigr) \\ 
+    & \lambda x \; . \; E [ x \rightarrow N] = \lambda x \; . \; E \\ 
+    & \lambda y \; . \; E [ x \rightarrow N] = 
+    \lambda y \; . \; \bigl( E[x \rightarrow N] \bigr) 
+    \\
+    &\texttt{où } x \neq y \text{, et }
+    y \text{ n'est pas libre dans } N 
+    \\ 
+    & \lambda y \; . \; \bigl( E[x \rightarrow N] \bigr) 
+    =
+    \bigl( \lambda y^{\prime} \; . \; 
+    E \{y^{\prime} \; /\ y \}[x \rightarrow N]\bigr)
+    \\ 
+    &\texttt{où } x \neq y, y \text{ libre dans } N \text{, et } \\
+    &y^{\prime} \text{ est un nouveau nom}
+  \end{align*}
+
+  \begin{EExample}{}{}
+      \begin{align*}
+        & (\lambda x \; . \; x) [x \rightarrow \texttt{foo}  ] 
+        = 
+        (\lambda x \; . \; x)
+        \\
+        & \text{Obéit à } \lambda x \; . \; E [x \rightarrow N] 
+        = 
+        \lambda x\; . \; E
+      \end{align*}
+
+      \begin{align*}
+        & (+ \; 1 \; x)[x \rightarrow 2] 
+        \\
+        &= 
+        \bigl(((+ \; 1) \; x) [x \rightarrow 2] \bigr) 
+        \bigl( x [x \rightarrow 2] \bigr)  \\
+        & \text{Obtéit à} 
+        (E_1 \; E_2) [x \rightarrow N]
+        \\
+        &= 
+        (E_1 [x \rightarrow N]) \; (E_2 [x \rightarrow N])\\
+        &\leftrightarrow 
+        \bigl(+ [x \rightarrow 2] \bigr)         
+        \bigl(1 [x \rightarrow 2] \bigr)         
+        \bigl(x [x \rightarrow 2] \bigr) \\ &= + (\; 1 \; 2)
+      \end{align*}
+
+      \begin{align*}
+        &(\lambda x \; . \; y x)[y \rightarrow \lambda z \; . \; x z]
+        \\
+        &= 
+        \lambda w \; . 
+        \bigl(\; y x\bigr) \{ w \; /\ x \}
+        [y \rightarrow \lambda z \; . \; x z]
+        \\ 
+        &= \lambda w \; . \; \bigl( yw \bigr)
+        [y \rightarrow \lambda z \; . \; x z]
+        \\ 
+        &= \lambda w \; . \; 
+        \bigl( y 
+        [y \rightarrow \lambda z \; . \; x z]\bigr)
+        \bigl(w [y \rightarrow \lambda z \; . \; x z] \bigr)
+        \\ 
+        &= \lambda y \; . \; 
+        (\lambda z \; . \; xz) (w)
+      \end{align*}
+  \end{EExample}
+
+  \paragraph{Execution}
+  \mbox{}
+  \vspace{0.5em}
+
+  \begin{Definitionx}{Exécution}{}
+      Engendre une séquence de termes qui est le résultat 
+      d'appels et d'invocations de fonctions
+  \end{Definitionx}
+
+  \noindent
+  $\rhd$ Chaque étape du processus d'\textbf{exécution} 
+  est appelé $\beta$-reduction. 
+  \mbox{}\\ \\
+  $\rhd$ On peut seulemnet $\beta$-réduire des 
+  \textbf{$\beta$}-redux; des expressions sous la forme 
+  \textit{application}  
+  \begin{itemize}
+    \item [$\blacktriangleright$ ] $(\lambda x \; . \; E) \; N$
+  \end{itemize}
+  \mbox{}\\
+  $\rhd$ Une $\beta$-réduction est définit par :
+  \begin{align*}
+      (\lambda x \; . \; E) \; N 
+      \text{ se } \beta\text{-réduit à } E[x \rightarrow N]
+  \end{align*}
+
+
+
+  \begin{EExample}{Exécutions}{}
+    \textbf{Exercice 1} :  
+      \begin{align*}
+        (\lambda x \; . \; x) y 
+        &= x[x \rightarrow y] = y
+      \end{align*}
+
+    \textbf{Exercice 2} :
+      \begin{align*}
+      &\bigl( \lambda x \; . \; x (\lambda x \; . \; x) \bigr) u r
+      \\
+      &= \Bigl(\bigl( \lambda x \; . \; x (\lambda x \; . \; x) \bigr) u\Bigr) r
+      \\
+      &= \Bigl(  x (\lambda x \; . \; x)[x \rightarrow u] \Bigr) r
+      \\
+      &= \Bigl(  \bigl(x[x \rightarrow u]\bigr) 
+          \bigl(\lambda x \; . \; x)[x \rightarrow u]\bigr) \Bigr) r
+      \\
+      &= \Bigl(u \; \lambda x \; . \; x \Bigr) r
+      \end{align*}
+
+    \textbf{Exercice 3} : 
+      \begin{align*}
+       &\bigl( \lambda x \; . \; x (\lambda x \; . \; x) \bigr) (u r) 
+       \\
+       & = x (\lambda x \; . \; x)[x \rightarrow (u r)]
+       \\
+       & = \bigl(x [x \rightarrow (u r)] \bigr)
+           \bigl(\lambda x \; . \; x [x \rightarrow (u r)] \bigr)
+        \\ 
+       & = (u r)(\lambda x \; . \; x)
+      \end{align*}
+  \end{EExample}  
+
+  \paragraph{Logique booléenne}
+  \mbox{}\\\\
+  \noindent
+  $\rhd$ \texttt{True} est une \textit{fonction} qui prend deux argument 
+  et retourne le \textbf{premier}   
+  \begin{align*}
+    T = \lambda x \; . \; \lambda y \; . \; x 
+  \end{align*}
+
+  \noindent
+  $\rhd$ \texttt{False} est une \textit{fonction} qui prend deux argument 
+  et retourne le \textbf{second}   
+  \begin{align*}
+    F = \lambda x \; . \; \lambda y \; . \; y 
+  \end{align*}
+
+  \begin{EExample}{}{}
+    \begin{align*}
+      (\lambda x \; . \; \lambda y \; . \; x) \; a \; b
+      &= 
+      ((\lambda x \; . \; \lambda y \; . \; x) \; a) \; b
+      \\
+      &= 
+      \bigl((\lambda y \; . \; x)[x \rightarrow a]\bigr) b 
+      \\ 
+      &= \bigl( \lambda y \; . \; a \bigr) b
+      \\
+      &= \bigl( \lambda y \; . \; a \bigr)[y \rightarrow b]
+      \\ 
+      &= a
+    \end{align*} 
+  \end{EExample}
+  \mbox{}\\
+  
+  \noindent
+  $\rhd$ \texttt{AND} est une \textit{fonction} qui prend deux arguments 
+  et renvoit \texttt{True} lorsqu'ils sont tous deux \texttt{True} et 
+  \texttt{False} autrement. 
+  \begin{align*}
+      \texttt{AND} = \lambda x \; . \; \lambda y \; . \; x y x  
+  \end{align*}
+
+  
+    \paragraph{Cas 1: \(x = T\), \(y = T\)}
+
+    \begin{align*}
+    (\lambda x . \lambda y . x y x) \, T \, T &= (\lambda y . T \, y \, T) \, T \\
+                                              &= T \, T \, T \\
+                                              &= T
+    \end{align*}
+
+  \paragraph{Cas 2: \(x = T\), \(y = F\)}
+
+  \begin{align*}
+  (\lambda x . \lambda y . x y x) \, T \, F &= (\lambda y . T \, y \, T) \, F \\
+                                            &= T \, F \, T \\
+                                            &= F
+  \end{align*}
+
+  \paragraph{Cas 3: \(x = F\), \(y = T\)}
+
+  \begin{align*}
+  (\lambda x . \lambda y . x y x) \, F \, T &= (\lambda y . F \, y \, F) \, T \\
+                                            &= F \, T \, F \\
+                                            &= F
+  \end{align*}
+
+  \paragraph{Cas 4: \(x = F\), \(y = F\)}
+
+  \begin{align*}
+  (\lambda x . \lambda y . x y x) \, F \, F &= (\lambda y . F \, y \, F) \, F \\
+                                            &= F \, F \, F \\
+                                            &= F
+  \end{align*}
+
+  \mbox{} 
+  \noindent 
+  $\rhd$ \texttt{NOT} est une \textit{fonction} qui prend un argument 
+  et renvoit l'opposé de celui-ci 
+
+  \begin{note}{}{}
+      Puisque l'argument de \texttt{NOT} est une fonction 
+      \texttt{True} ou \texttt{False}, en principe, 
+      \texttt{NOT} doit prendre deux arguments. 
+      La fonction que prend \texttt{NOT} (l'argument de \texttt{NOT})
+      renverra le premier argument si cette fonction est \texttt{True}
+      La fonction que prend \texttt{NOT} renverra le second 
+      argument si cette fonction est \texttt{False}. C'est pourquoi 
+      dans le corps de l'expression \texttt{NOT} il y a deux fonctions, soit 
+      \texttt{False} et \texttt{True} placées \textbf{devant} la fonction 
+      qui sera substituée par $x$; ces fonctions servent d'argument 
+      à la fonctione substuée par $x$, qui se trouve à être 
+      l'argument de \texttt{NOT}.  
+  \end{note}
+
+  \begin{align*}
+    \texttt{NOT} = \lambda x \; . \; x F T   
+  \end{align*}
+
+
+  \paragraph{Cas 1: \(x = T\)}
+  \begin{align*}
+    (\lambda x . x F \, T) T &= x \, F \, T[x \rightarrow T] \\
+                                  &= T F T \\ 
+                                  &= (\lambda x . \lambda y . x) F T \\ 
+                                  &= (\lambda y . x )[x \rightarrow F] T \\
+                                  &= (\lambda y . F) T \\ 
+                                  &= (F [y \rightarrow T]) \\ 
+                                  &= F
+  \end{align*}
+
+
+  \paragraph{Cas 2: \(x = F\)}
+  \begin{align*}
+    (\lambda x . x F \, T) T &= x \, F \, T[x \rightarrow F] \\
+                                  &= F F T \\ 
+                                  &= (\lambda x . \lambda y . y) F T \\ 
+                                  &= (\lambda y . y )[x \rightarrow F] T \\
+                                  &= (\lambda y . y) T \\ 
+                                  &= (y [y \rightarrow T]) \\ 
+                                  &= T
+  \end{align*}
+
+  \paragraph{Branche \texttt{if}}
+  Les branches permettent de changer le flow d'exécution d'une programme, 
+  en fonction de la condition du branchement et de la variable d'entrée. 
+
+  \mbox{}\\ 
+  \noindent 
+  L'architecture d'une \textit{fonction} 
+  \texttt{if}, en lambda calcul, devrait donc être telle que la fonction  
+  prend un booléen, comporte une branche \texttt{True} et 
+  comporte une seconde branche \texttt{False}.   
+
+
+  \begin{lstlisting}
+  if c then 
+    a 
+  else 
+    b
+  \end{lstlisting}
+
+  Le squelette de la fonction serait : 
+  \begin{align*}
+    \texttt{if} \; c \, a \, b  
+  \end{align*}
+  La fonction \texttt{if} devrait retourner $a$ ou $b$, dépendamment 
+  du booléen présenté en argument. La fonction \texttt{tx} prend alors 
+  trois paramètres. Si le paramètre booléen est vrai, elle retourne 
+  le paramètre $a$, qui se trouve à être le premier paramètre après le paramètre 
+  booléens. Si le paramètre booléen est faux, elle retourne le second paramètre
+  après le paramètre booléen, soit $b$. 
+
+  \mbox{}\\ 
+  On constate que le paramètre $c$ est simplement la fonction 
+  \texttt{True} ou la fonction \texttt{False}. On a : 
+
+  \begin{align*}
+    &\texttt{if} \; T \, a \, b = a   \\
+    &\texttt{if} \; F \, a \, b = b   
+  \end{align*}
+
+  Ainsi, la fonction \texttt{if} semble avoir la même sémantique que la 
+  fonction identité $\lambda x \, . \, x$ qui retourne la valeur 
+  d'entrée. 
+
+  Ainsi, on a 
+  \begin{align*}
+     &\texttt{if} \; T \, a \, b \leftrightarrow 
+     (\lambda w \, . \, w) \lambda x \, . \, \lambda y \, . \, x \; a \, b        
+     \\
+     &\textbf{et}
+     \\
+     &\texttt{if} \; F \, a \, b \leftrightarrow 
+     (\lambda w \, . \, w) \lambda x \, . \, \lambda y \, . \, y \; a \, b        
+  \end{align*}
+
+  \paragraph{Church's nurmerals}  
+  L'intuition derrière les nombre de Church est qu'un nombre 
+  correspond au nombre de fois où une fonction quelconque $f$ 
+  passé en argument sur la fonction du nombre est appliqué sur la 
+  variable $x$
+
+  \[
+  \begin{aligned}
+  0 &= \lambda f . \lambda x . x \\
+  1 &= \lambda f . \lambda x . f \, x \\
+  2 &= \lambda f . \lambda x . f \, (f \, x) \\
+  3 &= \lambda f . \lambda x . f \, (f \, (f \, x)) \\
+  4 &= \lambda f . \lambda x . f \, (f \, (f \, (f \, x))) \\
+  \end{aligned}
+  \]
+
+
+  \begin{EExample}{}{}
+    \begin{align*}
+      4 \, a \, b &= \bigl(\lambda f . \lambda x . f( f( f( f x))) a \bigr) b
+      \\ 
+              &= \bigl(\lambda x . f( f( f( f x))) a \bigr)[f \rightarrow a] \; b 
+      \\
+              &= \bigl(\lambda x . a ( a ( a ( a x)))\bigr) \; b 
+      \\
+              &= \bigl( a ( a ( a ( a x)))\bigr)[x \rightarrow b] \; b 
+      \\ 
+              &= \bigl( a ( a ( a ( a b)))\bigr) 
+    \end{align*}
+  \end{EExample}
+
+  \paragraph{Fonction successeur}
+  
+  \begin{align*}
+     \texttt{succ} = \lambda n . \lambda f . \lambda x . f(n \, f \, x)
+  \end{align*}
+
+  La fonction successeur en lambda calcul, notée 
+  \texttt{succ}, est utilisée pour ajouter 1 à un nombre de Church.
+  En d'autres mots, La fonction prend un nombre de Church $n$
+  comme entrée et renvoie en sortie un nouveau nombre de Church qui représente 
+  $n + 1$. 
+
+
+  \begin{EExample}{Successeur de 1}{}
+
+  \begin{align*}
+    &\bigl(\lambda n . \lambda f . \lambda x . f (n \, f \, x) \bigr) 1 
+    \\
+    &= 
+    \bigl(\lambda n . \lambda f . \lambda x . f (n \, f \, x) \bigr) 
+    (\lambda f . \lambda x . f \, x)
+    \\ 
+    &= 
+    \lambda f . \lambda x . f \bigl((\lambda f . \lambda x . f \, x) \, f \, x\bigr) 
+    \\
+    &= 
+    \lambda f . \lambda x . f \bigl((\lambda x . f \, x)[f \rightarrow f] \, x\bigr)
+    \\ 
+    &= 
+    \lambda f . \lambda x . f \bigl(f \, x\bigr)
+    \\
+    &= 
+    \lambda f . \lambda x . f (f \, x)
+    \\
+    &= 
+    \lambda f . \lambda x . f (f \, x)
+  \end{align*} 
+  \end{EExample}
+
+
+  \paragraph{Addition}
+  La fonction d'addition prend deux paramètre et retourne 
+  une fonction qui correspond au nombre de Church représentant la 
+  somme des deux paramètres 
+
+  \mbox{}\\\\
+  \noindent 
+  Cela peut être interprété comme appliquer $f$ $n$ fois à $x$, puis 
+  appliquer ce résultat $f$ $m$ fois à ce résultat.
+
+  \begin{align*}
+    \texttt{add} = \lambda m . \lambda n . \lambda f . \lambda x . n \, f \; 
+    (m \, x \, f)
+  \end{align*}
+
+  \begin{EExample}{Addition de 0 et 1}{}
+   \begin{align*}
+    &(\lambda n . \lambda m . \lambda f . \lambda x . n f (m f x)) \; 0 \, 1 \\
+    &= (\lambda m . \lambda f . \lambda x . 0 f (m f x)) \; 1 \\
+    &= \lambda f . \lambda x . 0 f (1 f x) \\
+    &= \lambda f . \lambda x . (\lambda f . \lambda x . x) f (f x) \\
+    &= \lambda f . \lambda x . (\lambda x . x)[x \rightarrow f x] \\
+    &= \lambda f . \lambda x . x \\
+    &= \lambda f . \lambda x . f x
+    \end{align*}     
+  \end{EExample}
+
+
+  \paragraph{Multiplication}
+$$\lambda n . \lambda m . m (add n ) 0 $$
+
+
+
+
+  \begin{EExample}{Multiplication de 0 et 1}{}
+     \begin{align*}
+      &(\lambda n . \lambda m . m (\text{add} \, n) \, 0) \, 0 \, 1 \\
+      &= (\lambda m . m (\text{add} \, 0) \, 0) \, 1 \\
+      &= 1 (\text{add} \, 0) \, 0 \\
+      &= (\lambda f . \lambda x . f x) (\text{add} \, 0) \, 0 \\
+      &= (\lambda f . \lambda x . f x) (\lambda m . \lambda f . \lambda x . 0 f (m f x)) \, 0 \\
+      &= (\lambda f . \lambda x . f x) (\lambda f . \lambda x . 0 f (0 f x)) \\
+      &= (\lambda f . \lambda x . f x) (\lambda f . \lambda x . x) \\
+      &= \lambda x . (\lambda f . \lambda x . x) x \\
+      &= \lambda x . x \\
+      &= \lambda f . \lambda x . x
+    \end{align*}
+  \end{EExample}
+
+  \paragraph{$Y$-combinator}
+  Le combinateur $Y$ est une fonction qui, à cause de sa structure particulière 
+  parvient à s'autorépliquer lorsqu'un argument lui est appliqué. La fonction 
+  résultante l'application $Y a$ est $Y Y a$, qui à son tour, engendre 
+  $Y Y Y a$, puis $Y Y Y Y a$, ainsi de suite. 
+
+  \begin{align*}
+    Y = \bigl(\lambda y . \lambda x . y (x \, x \, y)\bigr)
+        \bigl(\lambda y . \lambda x . y (x \, x \, y)\bigr)
+  \end{align*}
+
+  \begin{EExample}{}{}
+   \begin{align*}
+    &Y 
+    \text{foo} = \lambda f . (\lambda x . f (x x)) (\lambda x . f (x x)) \\
+    &\text{foo} \\
+    &= (\lambda f . (\lambda x . f (x x)) (\lambda x . f (x x))) \text{foo} \\
+    &= (\lambda x . \text{foo} (x x)) (\lambda x . \text{foo} (x x)) \\
+    &= \text{foo} ((\lambda x . \text{foo} (x x)) (\lambda x . \text{foo} (x x))) \\
+    &= \text{foo} (Y \text{foo}) \\
+    &= \text{foo} (\text{foo} (Y \text{foo})) \\
+    &= \text{foo} (\text{foo} (\text{foo} (Y \text{foo}))) \\
+    &\vdots
+  \end{align*}     
+  \end{EExample}
+
+
+
+
+    
+
+
+
+
+
+
+ 
+
+
+    
+
+
+
+    
     \end{multicols*}
 
 
