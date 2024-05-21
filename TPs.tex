@@ -1,0 +1,311 @@
+\documentclass{report}  
+\usepackage[utopia]{mathdesign} 
+%\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\input{preamble.tex}
+
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{titlesec}
+\usepackage{microtype}
+\definecolor{myblue}{RGB}{0,82,155}
+
+
+
+%\usepackage[scr]{rsfso}
+
+%\usepackage{libertine}
+%\usepackage{mathpazo}
+%\usepackage{palatino}
+%usepackage{crimson}
+
+
+\newcommand{\faketarget}{\oplus\!\!\!\!\odot}
+\newcommand{\target}{%
+  \begin{tikzpicture}[scale=0.5]
+    \fill[black] (0,0) circle (0.1);
+    \draw (0,0) circle (0.2);
+    \draw (0,0) circle (0.3);
+  \end{tikzpicture}%
+}
+
+\usepackage[clock]{ifsym}
+
+
+\title{\Huge{Interface Personne Marchine}\\{IFT2905}\\{\textbf{Introduction}}}
+\author{\huge{Franz Girardin}}
+\date{\today}
+\lstset{inputencoding=utf8/latin1}
+
+            %%%%%%%%%%%%%%%%%  Sect.                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{helvet}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\color{myblue}}
+  {\filleft%
+    \begin{tikzpicture}
+    \node[
+      outer sep=0pt,
+      text width=1.5cm,
+      minimum height=2cm,
+      fill=myblue,
+      font=\color{white}\fontsize{40}{50}\selectfont,
+      align=center
+      ] (num) {\thechapter};
+    \node[
+      rotate=90,
+      anchor=south,
+      font=\color{black}\Large\normalfont
+      ] at ([xshift=-5pt]num.west) {\textls[180]{\textsc{Section}}};  
+    \end{tikzpicture}%
+  }
+  {5pt}
+  {\titlerule[2.0pt]\vskip3pt\titlerule\vskip4pt\large\normalfont}
+
+\titleformat{\section}
+  {\normalfont\scshape}{\thesection}{1em}{}
+
+
+
+\titleformat{\section}
+  {\normalfont\scshape}{\thesection}{1em}{}
+
+
+% Customizing the spacing for the chapter titles
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+%\usepackage[utopia]{mathdesign}
+% Allow hfill in math environment
+\newcommand{\specialcell}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\ignorespaces\fi}
+
+% Allow you to do the non implication (implication barred)
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+
+\DeclareRobustCommand{\looongrightarrow}{%
+  \DOTSB\relbar\joinrel\relbar\joinrel\relbar\joinrel\rightarrow
+}
+
+
+\title{\Huge{Interface PM}\\{IFT2905}\\{\textbf{Travaux pratiques}}}
+\author{\huge{Franz Girardin}}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\begin{multicols*}{3}
+\chapter{TP1 Notation} 
+
+    \footnotesize
+
+\begin{Exercice}{}{}
+Le but de cet exercice est de comprendre comment passer d’une notation in-
+fixe (lisible par les humains) à une notation postfixe et préfixe. Ces notations
+sont utiles car elles permettent à un ordinateur de les ´evaluer (calculer) plus
+facilement et sans ambiguité.   
+\end{Exercice}
+
+\paragraph{1.1}
+
+
+
+\begin{align*}
+    a + b + c = ((a \textcolor{myg}{+}   b) \textcolor{myr}{+}   c) 
+             &= ((+ a \, b) + c) \\ 
+             &= + (+ a \, b) \; c \\ 
+             &= + + a \, b \, c \; 
+             \\
+             & \textbf{préfixé}  
+\end{align*}
+\begin{align*}
+    a + b + c = ((a \textcolor{myg}{+}   b) \textcolor{myr}{+}   c)           
+    &= ((a \, b \, +) + c) \\
+    &= ((a \, b \, +) \, c +) \\ 
+    &=  a \, b \, + c \, + \\
+    & \textbf{postfixé}
+\end{align*}
+
+
+\paragraph{1.2}
+\begin{align*}
+    a + (b + c) = (a + (+ b \, c)) 
+             &= ( + a \, (+ \, b \, c) ) \\
+             &= + \; a  +  b \, c \\
+             & \textbf{préfixé}  
+\end{align*}
+
+
+\begin{align*}
+    a + (b + c) = (a + (b \, c \, +)) 
+             &= (a \, ( b \, c) \, + \, + ) \\
+             &= a  b \, c \, + +\\
+             \\
+             & \textbf{postfixé}  
+\end{align*}
+
+
+\paragraph{1.2}
+\begin{align*}
+    a \times b + c \times d &= (a \times b) + (c \times d) 
+                    \\
+                  &= (\times a \, b) + (\times c \, d) 
+                    \\
+                  &= + (\times a \, b) \times c \, d
+                    \\
+                  &= + \times a \, b \times c \, d
+                    \\
+                  & \textbf{préfixé}
+\end{align*}    
+
+\begin{align*}
+    a \times b + c \times d &= (a \times b) + (c \times d) 
+    \\
+            &= (a \, b \times) + (c \, d \times)
+    \\
+            &= (a \, b \times) (c \, d \times) + 
+    \\ 
+            &= a \, b \times c \, d \times +
+    \\
+            & \textbf{postfixé}
+\end{align*}
+
+
+\begin{align*}
+    a + b < a \times (c + d) &= (+ a \, b) < \bigl( a \times (+ c \, d) \bigr)      
+    \\ 
+            &= (+ a \, b ) < \bigl( \times a (+ c \, d)\bigr)
+    \\ 
+            &= < (+ a \, b )  \bigl( \times a (+ c \, d)\bigr)
+    \\
+            &= < + a \, b  \times a + c \, d
+    \\
+                  & \textbf{préfixé}
+\end{align*}
+
+
+\begin{align*}
+    a + b < a \times (c + d) &= (a \, b +) < \bigl( a \times (c \, d +) \bigr)
+    \\ 
+            &= (a \, b +) < \bigl( a  (c \, d +) \times \bigr)
+    \\
+            &= (a \, b +)  \bigl( a  (c \, d +) \times < \bigr)
+    \\
+            &= a \, b +  a  c \, d + \times < \bigr)
+            \\
+            & \textbf{postfixé}
+\end{align*}
+
+
+\begin{align*}
+    &(-b + sqrt(b\times b -4 \times a \times c))/(2 \times a)
+    \\ 
+    &= 
+    (-b + sqrt((\times b \, b) - (\times \times 4\,  a \, c)  ))/(\times 2 \, a)
+    \\
+    &=\bigl(+ -b \; sqrt\bigl( - \times b \, b  \times \times 4\,  a \, c   \bigr)  \bigr)/(\times 2 \, a)
+    \\
+    &=\bigl(+ -b \; sqrt\bigl( - \times b \, b  \times \times 4\,  a \, c   \bigr)  \bigr) \times 2 \, a /
+    \\ 
+    &= + -b \; sqrt - \times b \, b  \times \times 4\,  a \, c -  / \times 2 \, a 
+    \\
+    & \textbf{préfixé}
+\end{align*}
+
+
+\begin{align*}
+    &(-b + sqrt(b\times b -4 \times a \times c))/(2 \times a)
+    \\ 
+    &= 
+    (b- + sqrt((b \, b \times) - (4 \,  a \times  c \, \times)  ))/(2 \, a \times)
+    \\
+    &=(b- + sqrt( b \, b \times  4 \,  a \times  c \, \times -  ))/(2 \, a \times)
+    \\
+    &=(b- + b \, b \times  4 \,  a \times  c \, \times -  sqrt )  /(2 \, a \times)
+    \\
+    &=(b- b \, b \times  4 \,  a \times  c \, \times -  sqrt +) + /(2 \, a \times)
+    \\
+    &= b- b \, b \times  4 \,  a \times  c \, \times -  sqt + 2 \, a \ \times
+    \\
+            & \textbf{postfixé}
+\end{align*}
+
+\begin{Exercice}{}{}
+Le but de cet exercice est de comprendre comment un ordinateur réesout un
+calcul à partir d’une notation postfixe.   
+\end{Exercice}
+
+
+\begin{align*}
+    ab \textcolor{myp}{+}   c \textcolor{red}{+} : \quad & \\  
+    \\
+                     & \texttt{stack}(a); 
+    \\
+                     & \texttt{stack}(b); 
+    \\
+                     & \textbf{do}   :
+                     \\ 
+                     & \quad \textcolor{myb}{\texttt{\textit{ // Opération a \textcolor{myp}{+}   b}}}  
+    \\
+                     & \quad \texttt{stack}\bigl(\texttt{unstack}() \textcolor{myp}{+}   \texttt{unstack}()\bigr);
+    \\ 
+                     & \texttt{stack}(c) 
+    \\
+                     & \textbf{do} : 
+                     \\ 
+                      & \quad \textcolor{myb}{\texttt{\textit{ // Opération (a \textcolor{red}{+}   b) + c }}}                    
+    \\
+                     & \quad \texttt{stack}\bigl(\texttt{unstack}() \textcolor{myp}{+}   \texttt{unstack}() \bigr)
+\end{align*}
+
+
+\begin{Exercice}{}{}
+Donner un exemple d'expression ambigue    
+\end{Exercice}
+
+\texttt{\textbf{if}   p \textbf{then} \textbf{if} q \textbf{then} r \textbf{else} s}  
+
+L'expression est ambvigue puisqu'on ne sait pas si le bloc \texttt{else} est associé à la condition 
+1, \texttt{if p}, ou à la condition 2 \texttt{if q}.      
+
+
+\begin{Exercice}{}{}
+    Donner une grammaire non ambigue qui associe les \texttt{else} avec les 
+    \texttt{if} le plus proche, cmme le font les langage de programmation habituels.  
+\end{Exercice}
+
+
+% Première Grammaire
+\begin{align*}
+ S ::= X \\
+    \mid \text{if} \; E \; \text{then} \; S \; \text{end} \\
+    \mid \text{if} \; E \; \text{then} \; S \; \text{else} \; S \; \text{end}           
+\end{align*}
+
+Cette grammaire force le \texttt{else} à être explicitement inclus avec son \texttt{if} 
+correspondant. Chaque bloc est finalisé par la déclaration \texttt{end}, assurant ansi qu'un 
+else peut uniquement être lié au \texttt{if}   le plus proche.
+
+% Deuxième Grammaire
+\begin{align*}
+ S ::= X \\
+    \mid \text{if} \; ( \; E \; ) \; \{ \; S \; \} \\
+    \mid \text{if} \; ( \; E \; ) \; \{ \; S \; \} \; \text{else} \; \{ \; S \; \}
+\end{align*}
+
+Cette grammaire utilise des parenthèses et des accolades pour structurer les blocs, ce qui rend 
+l'association entre if et else explicite et sans ambiguïté.
+
+
+
+
+
+
+\end{multicols*}
+
+
+\end{document}
