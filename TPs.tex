@@ -4,10 +4,13 @@
 
 \input{preamble.tex}
 
+
 \usepackage{amsmath,amsthm,mathtools}
 \usepackage{titlesec}
 \usepackage{microtype}
 \definecolor{myblue}{RGB}{0,82,155}
+\usepackage{paracol}
+
 
 
 
@@ -300,12 +303,103 @@ else peut uniquement être lié au \texttt{if}   le plus proche.
 Cette grammaire utilise des parenthèses et des accolades pour structurer les blocs, ce qui rend 
 l'association entre if et else explicite et sans ambiguïté.
 
+\chapter{EBNF}
 
+\begin{Exercice}{}{}
+ Voici un exemple de programme dans un langage similaire `a Javascript et 
+ la grammaire du langage en notation EBNF 
+ Compl´eter la grammaire pour qu’elle accepte le programme. 
+\end{Exercice}
 
-
-
-
+\begin{adjustbox}{width=\linewidth}
+  \begin{lstlisting}
+var ackermann = function (m, n) {
+  if (m == 0) {
+    return n + 1;
+  } else if (n == 0) {
+      return ackermann (m - 1, 1);
+  } else {
+      return ackermann (m - 1, ackermann (m , n - 1));
+    };  
+  \end{lstlisting}
+\end{adjustbox}
 \end{multicols*}
+
+\lstset{ 
+  basicstyle=\ttfamily, 
+  commentstyle=\color{blue}, 
+  escapeinside={(*@}{@*)} 
+}
+
+
+\columnratio{.66,.33}
+\begin{paracol}{2}
+
+
+
+
+
+
+
+
+
+\begin{adjustbox}{width=\linewidth}
+\begin{lstlisting}
+(*@  \texttt{\textcolor{myb}{/* This is a comment explaining the function definition syntax */  }} @*)
+<functionDefinition> ::= function <identifier> "(" <formals> ")" "{" <body> "}"
+
+/* This defines the formal parameters for a function */
+<formals> ::= <identifier> ("," <identifier>)*
+
+/* The body of the function, consisting of zero or more statements */
+<body> ::= <statement>*
+
+/* Statements can be expressions or blocks */
+<statement> ::= <expressionStatement>
+             | <blockStatement>
+
+/* An expression statement ends with a semicolon */
+<expressionStatement> ::= <expression> ";"
+
+/* A block statement is a group of statements enclosed in braces */
+<blockStatement> ::= "{" <statement>* "}"
+
+<expression> ::= <assignmentExpression>
+
+/* An assignment expression assigns a value to a left-hand side */
+<assignmentExpression> ::= <leftHandSide> "=" <expression>
+                         | <leftHandSide>
+
+<leftHandSide> ::= <identifier>
+                 | <memberExpression>
+
+/* A member expression can be a property access */
+<memberExpression> ::= <identifier> "." <identifier>
+                     | <identifier> "[" <expression> "]"
+
+/* An identifier is a variable name */
+<identifier> ::= [a-zA-Z_][a-zA-Z0-9_]*
+
+/* Actual parameters (arguments) for function calls */
+<actuals> ::= <expression> ("," <expression>)*
+\end{lstlisting}
+
+\end{adjustbox}
+
+
+\switchcolumn
+
+\end{paracol}
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
