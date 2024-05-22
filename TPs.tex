@@ -334,6 +334,7 @@ var ackermann = function (m, n) {
 
 \columnratio{.66,.33}
 \begin{paracol}{2}
+        \footnotesize
 
 
 
@@ -343,46 +344,33 @@ var ackermann = function (m, n) {
 
 
 
-\begin{adjustbox}{width=\linewidth}
+\begin{adjustbox}{width=0.66\linewidth}
 \begin{lstlisting}
-(*@  \texttt{\textcolor{myb}{/* This is a comment explaining the function definition syntax */  }} @*)
-<functionDefinition> ::= function <identifier> "(" <formals> ")" "{" <body> "}"
+(*@  \texttt{\textcolor{myb}{ \textit{/* Un programme correspond a une expression */  }}} @*)
+<program> ::= <instr>
 
-/* This defines the formal parameters for a function */
-<formals> ::= <identifier> ("," <identifier>)*
 
-/* The body of the function, consisting of zero or more statements */
-<body> ::= <statement>*
+(*@  \texttt{\textcolor{myb}{ \textit{/* Une instruction est une expression suivis du terminal 
+";" */  }}} @*)
+<instr> ::= <expr> ";"
+            (*@  \texttt{\textcolor{myb}{ \textit{/* Ou une instruction suivie d'une autre */  }}} @*)
+            | <instr> <instr>
 
-/* Statements can be expressions or blocks */
-<statement> ::= <expressionStatement>
-             | <blockStatement>
+(*@  \texttt{\textcolor{myb}{ \textit{/* Une expression peut etre une fonction, une comparaison 
+ou un appel de fonction */  }}} @*)
+<expr> ::= "function" "(" <formals> ")" "{" <instr> "}"
+            | <expr> "==" <expr>
+            | <identifier> "(" <actuals> ")"
 
-/* An expression statement ends with a semicolon */
-<expressionStatement> ::= <expression> ";"
+(*@  \texttt{\textcolor{myb}{ \textit{/* Les parametres formels d'une fonction peuvent etre */  }}} @*)
+<formals> ::= (*@ $\varepsilon$ @*) (*@ \texttt{ \textit{\textcolor{myb}{ vides}  }}@*)
+             (*@ \texttt{ \textit{\textcolor{myb}{/* Ou un identifiant unique}  */}}@*) 
+            | <identifier> { "," <identifier> }
+             (*@ \texttt{ \textit{\textcolor{myb}{/* Ou une serie d'identifiants separes d'une virgule */}  }}@*)
+            
 
-/* A block statement is a group of statements enclosed in braces */
-<blockStatement> ::= "{" <statement>* "}"
-
-<expression> ::= <assignmentExpression>
-
-/* An assignment expression assigns a value to a left-hand side */
-<assignmentExpression> ::= <leftHandSide> "=" <expression>
-                         | <leftHandSide>
-
-<leftHandSide> ::= <identifier>
-                 | <memberExpression>
-
-/* A member expression can be a property access */
-<memberExpression> ::= <identifier> "." <identifier>
-                     | <identifier> "[" <expression> "]"
-
-/* An identifier is a variable name */
-<identifier> ::= [a-zA-Z_][a-zA-Z0-9_]*
-
-/* Actual parameters (arguments) for function calls */
-<actuals> ::= <expression> ("," <expression>)*
-\end{lstlisting}
+(*@  \texttt{\textcolor{myb}{ \textit{/* Les parametre actuels d'un appel de fonction peuvent etre vide ou une expr. */  }}} @*)
+<actuals> ::= (*@ $\varepsilon$ @*) | <expr>\end{lstlisting}
 
 \end{adjustbox}
 
