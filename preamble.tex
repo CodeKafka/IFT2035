@@ -458,6 +458,63 @@ picture]{%
 	numbersep=4pt,
 	numberstyle=\ttfamily\tiny\color{gray}
 }
+
+% Define the Dracula White colors
+\definecolor{bgcolor}{rgb}{1,1,1}
+\definecolor{draculaForeground}{rgb}{0.282,0.306,0.373}
+\definecolor{draculaBackground}{rgb}{0.973,0.973,0.973}
+\definecolor{draculaCurrentLine}{rgb}{0.929,0.929,0.933}
+\definecolor{draculaSelection}{rgb}{0.765,0.769,0.780}
+\definecolor{draculaComment}{rgb}{0.529,0.651,0.733}
+\definecolor{draculaCyan}{rgb}{0.467,0.843,0.917}
+\definecolor{draculaGreen}{rgb}{0.608,0.741,0.459}
+\definecolor{draculaOrange}{rgb}{0.914,0.631,0.329}
+\definecolor{draculaPink}{rgb}{0.976,0.537,0.741}
+\definecolor{draculaPurple}{rgb}{0.608,0.459,0.835}
+\definecolor{draculaRed}{rgb}{0.937,0.325,0.314}
+\definecolor{draculaYellow}{rgb}{0.976,0.875,0.408}
+
+\lstdefinestyle{DraculaWhiteHaskell}{
+    backgroundcolor=\color{draculaBackground},
+    basicstyle=\ttfamily\footnotesize\color{black},
+    commentstyle=\itshape\color{draculaComment},
+    keywordstyle=\color{draculaPink}\ttfamily,
+    stringstyle=\color{myg}\ttfamily,
+    identifierstyle=\color{black}\ttfamily\bfseries,
+    numberstyle=\ttfamily\tiny\color{myg},
+    emphstyle=\color{draculaGreen},
+escapeinside={(*@}{@*)},
+    language= Haskell,
+    extendedchars=true,
+    frame=none,
+    tabsize=4,
+    rulecolor=\color{draculaCurrentLine},
+    breaklines=true,
+    showstringspaces=false,
+    numbers=left,
+    numbersep=5pt,
+    literate=
+        {->}{{\color{draculaOrange}\texttt{->}}}2
+        %{let}{{\color{orange}\texttt{let}}}2
+        {=>}{{\color{draculaOrange}\texttt{=>}}}2
+        {<=}{{\color{draculaOrange}\texttt{<=}}}2
+        {>=}{{\color{draculaOrange}\texttt{>=}}}2
+        {<}{{\color{draculaOrange}\texttt{<}}}1
+        {>}{{\color{draculaOrange}\texttt{>}}}1
+        {==}{{\color{draculaOrange}\texttt{==}}}2
+        {/=}{{\color{draculaOrange}\texttt{/=}}}2
+        {++}{{\color{draculaOrange}\texttt{++}}}2
+        {>>}{{\color{draculaOrange}\texttt{>>}}}2
+        {>>=}{{\color{draculaOrange}\texttt{>>=}}}2
+        {<=>}{{\color{draculaOrange}\texttt{<=>}}}3
+        {<-}{{\color{draculaOrange}\texttt{<-}}}2,
+}
+
+
+
+
+
+
 %====================================================================
 % 
 %====================================================================

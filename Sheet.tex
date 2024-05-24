@@ -100,11 +100,17 @@
 \pagebreak
 \tableofcontents
 \pagebreak
+
+
+\lstset{ 
+  basicstyle=\ttfamily, 
+  commentstyle=\color{blue}, 
+  escapeinside={(*@}{@*)} 
+}
 \begin{multicols*}{3}
 
 
     \footnotesize
-    \paragraph{Style de language de programmation} 
 
     \chapter{Extended Backus-Naur Form}
 
@@ -302,6 +308,306 @@ for tree={font=\ttfamily, reversed}
      \end{tikzpicture}
   \end{adjustbox}
 \end{EExample}
+
+
+\chapter{Base de la syntaxe Haskell}
+
+\vspace{-2em}
+\section{Fonctions standards Haskell}
+En plus des \textbf{opération de base} telles que \texttt{+ - * /} présentes 
+dans les autres langages de programmation, Haskell possède 
+plusieurs \textbf{fonctions standards}.  
+\begin{EExample}{}{}
+  \begin{lstlisting}[style=DraculaWhiteHaskell]
+ -- Retourne le premier nombre de la liste 
+ head [1, 2, 3, 4, 5]  
+ -- Retourne 1
+
+ -- Retire le premier element de la liste 
+ tail [1, 2, 3, 4, 5] 
+ -- Retourne [2, 3, 4, 5]
+
+ -- Selectionne le nth element d'une liste; index commence a 0 
+ [1, 2, 3, 4, 5] !! 2 
+ -- Retourne 3 
+
+ -- Selectionne les nth premiers elements d'une liste 
+ take 3 [1, 2, 3, 4, 5] 
+ -- retourne [1, 2, 3]
+
+ -- Retire les nth premiers elements d'une liste 
+ drop 3 [1, 2, 3, 4, 5] 
+ -- retourne [4, 5]
+
+ -- Calcule la longueur d'une liste 
+ length [1, 2, 3, 4, 5] 
+ -- Retourne 5 
+
+ -- Calcule la somme des nombres d'une liste 
+ sum [1, 2, 3, 4, 5] 
+ -- Retourne 15
+
+ -- Calcule le produit des elements d'une liste 
+ product [1, 2, 3, 4, 5]
+ -- Retourne 120 
+
+ -- Joint deux liste 
+ [1, 2, 3] ++ [4, 5] 
+ -- Retourne [1, 2, 3, 4, 5]
+  \end{lstlisting}
+\end{EExample}
+
+\section{Application de fonctions}
+En mathématique, l'application de fonction est 
+\textbf{mise en évidence} par l'usage de parenthèse 
+et la multiplication est \textbf{implicite} lorsque deux termes 
+sont séparés d'un espace.
+
+
+En Haskell, la \textbf{multiplication est est mise en évidence}
+par l'usage de $*$ et l'application de fonction est 
+\textbf{implicite}, comme en lambda calcul.   
+
+\begin{table}[H]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.5}
+    \fontfamily{flr}\selectfont
+    \footnotesize
+        \begin{tabular}{l|l}
+        \arrayrulecolor{white}\hline
+        \rowcolor{white}
+        \textcolor{myb}{Mathématique} & \textcolor{myb}{\texttt{Haskell}}
+        \\
+        \hline
+        \arrayrulecolor{black}
+        $f(a, b) + c d$ & \texttt{f a b + c*d}  
+        \\
+        $f(a) + b$ & \texttt{f a + b}
+        \\ 
+        $f(x)$ & \texttt{f x}  
+        \\
+        $f(x, y)$ & \texttt{f x y}  
+        \\ 
+        $f(g(x))$ & \texttt{f (g x)}
+        \\ 
+        $f(x, g(y))$ & \texttt{f x (g y) }  
+        \\ 
+        $f(x) g(y)$ & \texttt{f x * g y}  
+        \end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Opérateur infixé}
+En Haskell, par défaut, les opérateurs de 
+base \texttt{+ - * \ < > <= >= == /=}, etc. et tout ceux qui 
+s'\textbf{utilisent normalement de manière infixé} peuvent 
+être utilisé de façon préfixé en utilisant des parenthèses  
+
+
+\begin{table}[H]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.5}
+    \fontfamily{flr}\selectfont
+    \footnotesize
+        \begin{tabular}{l|l}
+        \arrayrulecolor{white}\hline
+        \rowcolor{white}
+        \textcolor{myb}{Infixé} & \textcolor{myb}{Préfixé}
+        \\
+        \hline
+        \arrayrulecolor{black}
+        \texttt{a + b} 
+        &
+        \texttt{(+) a b}  
+        \\
+        \texttt{a > b} 
+        &
+        \texttt{(>) a b}  
+        \\
+        \end{tabular}
+\end{center}
+\end{table}
+
+
+Les opérateurs qui sont des \textbf{\textbf{fonctions} qui s'utilisent de manière 
+préfixé} sans parenthèse telles que \texttt{\textcolor{myp}{div}} peuvent   
+être utilisé de façon \textbf{infixé} en les encadrant   
+des guillements arriète \textasciigrave \textasciigrave .
+
+
+
+\begin{table}[H]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.5}
+    \fontfamily{flr}\selectfont
+    \footnotesize
+        \begin{tabular}{l|l}
+        \arrayrulecolor{white}\hline
+        \rowcolor{white}
+        \textcolor{myb}{Infixé} & \textcolor{myb}{Préfixé}
+        \\
+        \hline
+        \arrayrulecolor{black}
+        \texttt{a} \textasciigrave \texttt{div}\textasciigrave \texttt{ b} 
+        &
+        \texttt{div a b}  
+        \\
+        \texttt{a} \textasciigrave \texttt{mod}\textasciigrave \texttt{ b} 
+        &
+        \texttt{mod a b}  
+        \\
+        \texttt{a} \textasciigrave \texttt{quot}\textasciigrave \texttt{ b} 
+        &
+        \texttt{quot a b}  
+        \\
+        \texttt{a} \textasciigrave \texttt{rem}\textasciigrave \texttt{ b} 
+        &
+        \texttt{rem a b}  
+        \end{tabular}
+\end{center}
+\end{table}
+
+
+
+
+\newcommand{\tikzxmark}{%
+\tikz[scale=0.23] {
+    \draw[line width=0.7,line cap=round] (0,0) to [bend left=6] (1,1);
+    \draw[line width=0.7,line cap=round] (0.2,0.95) to [bend right=3] (0.8,0.05);
+}}
+\newcommand{\tikzcmark}{%
+\tikz[scale=0.23] {
+    \draw[line width=0.7,line cap=round] (0.25,0) to [bend left=10] (1,1);
+    \draw[line width=0.8,line cap=round] (0,0.35) to [bend right=1] (0.23,0);
+}}
+
+\vspace{-3em}
+\begin{EExample}{Programmes simples}{}
+\begin{lstlisting}[style=DraculaWhiteHaskell]
+-- Calcule le produit des nombre 1 a n
+factorial n = product[1..n]
+
+-- Calcule la moyenne d'une liste de nombres ns 
+Avg ns = sum ns (*@ \textasciigrave @*)div(*@\textasciigrave @*) length ns 
+\end{lstlisting}
+\end{EExample}
+
+\section{Conventions d'écriture}
+$\blacktriangleright$ Les noms de \textbf{fonctions} et \textbf{variables} 
+débutent par une \textit{minuscule}.   
+
+$\blacktriangleright$ Les \textbf{argument de liste} ont habituellement un 
+\texttt{\textbf{s}} à la fin de leur nom.
+
+\begin{align*}
+  \texttt{xs} \Coloneqq \text{liste de valeur de type \texttt{x}} 
+\end{align*}
+
+ $\blacktriangleright$ Les noms de \textbf{types} débutent avec une lettre
+ majuscule
+
+
+$\blacktriangleright$ Dans une séquence de définitions, chaque définition doit 
+commencer précisément sur \textbf{la même colone}. Cela permet le 
+\textbf{groupement implicite} de définitions.   
+
+
+\begin{table}[H]
+  \begin{center}
+    \renewcommand{\arraystretch}{1.5}
+    \fontfamily{flr}\selectfont
+    \footnotesize
+        \begin{tabular}{c|c|c}
+        \arrayrulecolor{white}\hline
+        \rowcolor{white}
+        \textcolor{myg}{\tikzcmark} & 
+        \textcolor{myr}{\tikzxmark} &
+        \textcolor{myr}{\tikzxmark}
+
+        \\
+        \hline
+        \arrayrulecolor{black}
+        \texttt{a = 10}  & \texttt{a = 10} & \texttt{ a = 10}    
+        \\
+        \texttt{b = 20}  & \texttt{ b = 20} & \texttt{b = 20}    
+        \\
+        \texttt{c = 30}  & \texttt{c = 30} & \texttt{ c = 30}   
+        \\ 
+        \end{tabular}
+\end{center}
+\end{table}
+
+\begin{EExample}{Groupement im-/ex-plicite déf.}{}
+  \begin{lstlisting}[style=DraculaWhiteHaskell]
+-- Implicite par l'usage d'espc. 
+a = b + c 
+  where 
+    b = 1 
+    c = 2 
+d = a * b
+
+
+-- Explicite: usage de ';' et '{}'
+a = b + c 
+  where 
+    {b = 1;
+     c = 2}
+d = a * b    
+  \end{lstlisting}
+    
+\end{EExample}
+
+\section{Commandes GHCi utiles}
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l}
+\textbf{Command} & \textbf{Meaning} \\ 
+\texttt{:load \textit{name}} & Load script \texttt{name} \\ 
+\texttt{:reload} & Reload current script \\ 
+\texttt{:edit \textit{name}} & Edit script \texttt{name} \\ 
+\texttt{:edit} & Edit current script \\ 
+\texttt{:type \textit{expr}} & Show type of \texttt{expr} \\ 
+\texttt{:?} & Show all commands \\ 
+\texttt{:quit} & Quit GHCi \\ 
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+\section*{Arguments et retour}
+
+\noindent\textbf{Java}  
+\mbox{}\\
+\begin{adjustbox}{width=1\linewidth}
+\begin{lstlisting}[style=JavaDraculaWhite] 
+boolean SThan(int size, (@* String str) {
+    return str.length < longueur;
+}  
+\end{lstlisting}
+\end{adjustbox}
+
+\mbox{}
+\\
+
+
+
+
+\noindent\textbf{Haskell}  
+\mbox{}\\
+
+\begin{lstlisting}[style=DraculaWhiteHaskell]
+{-
+Definit le type de la fonction; 
+prend Int et String et renvoit bool
+-}
+lThan :: Int -> String -> Bool 
+
+lThan size str = l str < size
+\end{lstlisting}
 
 
 

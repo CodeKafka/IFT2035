@@ -342,6 +342,10 @@ var ackermann = function (m, n) {
 
 
 
+\begin{note}{}{}
+    Les éléments de grammaire en \textbf{\textcolor{myr}{rouge}} 
+    sont les élément manquants
+\end{note}
 
 
 \begin{adjustbox}{width=0.66\linewidth}
@@ -361,6 +365,19 @@ ou un appel de fonction */  }}} @*)
 <expr> ::= "function" "(" <formals> ")" "{" <instr> "}"
             | <expr> "==" <expr>
             | <identifier> "(" <actuals> ")"
+            (*@\texttt{\textcolor{red}{| <expr> + <expr>}  }   @*)
+            (*@\texttt{\textcolor{red}{| <expr> - <expr>}  }   @*)
+            (*@\texttt{\textcolor{red}{| <number>}  }   @*)
+            (*@\texttt{\textcolor{red}{| "if" "(" <expr.> ")" "\{" <instr> "\}" <else> }}   @*)
+
+
+(*@\texttt{\textcolor{red}{<else> :== "else" "\{" <instr.> "\}" }}   @*)
+            (*@\texttt{\textcolor{red}{| "else if" "(" <expr.> ")" "\{" <instr.>"\}" <else> }}   @*)
+            (*@\texttt{\textcolor{red}{| $\varepsilon $}}   @*)
+
+
+            
+
 
 (*@  \texttt{\textcolor{myb}{ \textit{/* Les parametres formels d'une fonction peuvent etre */  }}} @*)
 <formals> ::= (*@ $\varepsilon$ @*) (*@ \texttt{ \textit{\textcolor{myb}{ vides}  }}@*)
@@ -370,7 +387,30 @@ ou un appel de fonction */  }}} @*)
             
 
 (*@  \texttt{\textcolor{myb}{ \textit{/* Les parametre actuels d'un appel de fonction peuvent etre vide ou une expr. */  }}} @*)
-<actuals> ::= (*@ $\varepsilon$ @*) | <expr>\end{lstlisting}
+<actuals> ::= (*@ $\varepsilon$ @*) | <expr>
+
+
+(*@  \texttt{\textcolor{myb}{ \textit{/*  Permet a une expression d'etre un nombre */  }}} @*)
+
+(*@  \texttt{\textcolor{myb}{ \textit{/* Un identifiant est une serie de lettres */  }}} @*)
+(*@ \texttt{\textcolor{red}{<identifier> ::= <letter> \{letter\}}}  @*)
+
+(*@  \texttt{\textcolor{myb}{ \textit{/* Les lettres acceptees sont celles de l'alphabet */  }}} @*)
+(*@ \texttt{\textcolor{red}{<letter> ::= "a" - "z" | "A" - "Z"}}  @*)
+
+
+(*@ \texttt{\textcolor{red}{<number> ::= <digit> \{digit\}}}  @*)
+
+
+(*@ \texttt{\textcolor{red}{<digit> ::= |"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"}}  @*)
+
+
+\end{lstlisting}
+
+
+
+
+
 
 \end{adjustbox}
 
